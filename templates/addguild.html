@@ -1,0 +1,36 @@
+	{% extends "layout.html" %}
+{% block title%}Add Guild{%endblock%}
+{%block content%}
+<table width="100%">
+	<tr>
+		<td>
+			{%if message%}
+	<h2>{{message}}</h2>
+	{%if guild%}<a href="/report/viewguild/{{guild.id}}/">View Guild</a>{%endif%}
+	{%else%}
+	<h2>Add a guild</h2>
+	<h4>All fields are required - We now check the official WoW Armory site to verify guild names.</h4>
+	<form class="form" method="POST" name="form1" action="/report/addguild/">
+		Guild Name:<br />
+		<input type="text" maxlength="100" name="guild_name"/>
+		<br /><br />
+	 	Faction:<br />
+		<select name="guild_faction">
+				<option value="A">Alliance</option>
+				<option value="H">Horde</option>
+		</select>
+		<br /><br />
+		Realm:<br />
+		<select name="guild_realm">
+			{%for r in realms%}
+				<option value="{{r.id}}">{{r.name}}({{r.location}})</option>
+			{%endfor%}
+		</select>
+		<br /><br />
+		<input type="submit" value="Create"/>
+	 </form>
+{%endif%}
+		</td>
+	</tr>
+</table>
+{%endblock%}

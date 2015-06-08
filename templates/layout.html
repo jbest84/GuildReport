@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{% block title%}GuildReport.com{%endblock%}</title>
+<meta name="Keywords" content="guild.report,rating,wow,world of warcraft,warcraft" />
+<meta name="Description" content="A World of Warcraft guild reporting and rating system" />
+<meta name="verify-v1" content="ergLyUjw0V9MOI4ayZ5fSKwtLFcTKvJYpg+7b3sTrg4=" />
+<meta name="y_key" content="934311737ccacd16" >
+<link href="/media/default.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="/media/print.css" rel="stylesheet" media="print" type="text/css" />
+{%block extra_head%}{%endblock%}
+</head>
+<body>
+<div id="mainPage">
+	<h1 class="title">Guild Report</h1>
+
+	<ul id="menu">
+		<li><a href="/report/" accesskey="1" title="">Home</a></li>
+		<li><a href="/report/newreport" accesskey="2" title="">New Report</a></li>
+		<li><a href="/report/addguild/" accesskey="3" title="">Add Guild</a></li>
+		<li><a href="/report/news/" accesskey="4" title="">News</a></li>
+		
+		<li class="lastButton"><a href="mailto:contact@guildreport.com" title="">Contact Us</a></li>
+	</ul>
+	<ul id="menu">
+		{% if user.is_authenticated %}
+			<li><a href="/accounts/logout/" title="">Log Out</a></li>
+		{%else%}
+			<li><a href="/accounts/login/" title="">Login</a></li>
+		{%endif%}
+		{% if user.is_staff%}
+			<li><a href="/site_admin/" title="">Admin</a></li>
+		{%endif%}
+		<li class="lastButton"><a href="/accounts/create/" title="">Create Account</a></li>
+	</ul>
+
+<div id="content">
+	{% block content%}
+	{%endblock%}
+</div>
+
+<div id="footer">
+	<hr>
+	<p>Website best viewed in Mozilla FireFox.</p>
+	<p>Copyright &copy; 2007 guildreport.com. All Rights Reserved.</p>
+
+	<p>World of Warcraft&reg; and Blizzard Entertainment&reg; are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright &copy; Blizzard Entertainment. This site is in no way associated with or endorsed by Blizzard Entertainment&reg;.</p>
+	<p>Logo provided by Greenconure Design.</p>
+</div>
+	
+</div>
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2265002-1";
+urchinTracker();
+</script>
+</body>
+</html>

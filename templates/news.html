@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title%}News{%endblock%}
+{%block content%}
+<table width="100%">
+	<tr>
+		<td>
+			<a href="/rss/latest/"><img src="/media/images/RSS.gif" border="0px"></a>
+			<hr>
+	{%if news%}
+		{%for n in news%}
+			<h2>{{n.title}}</h2>
+			<div>
+				{{n.content}}<br /><br /><strong>Posted on: {{n.posted_on}} by {{n.user.first_name}}</strong>
+			</div>
+			<hr>
+		{%endfor%}
+	{%endif%}
+		</td>
+	</tr>
+</table>
+{%endblock%}

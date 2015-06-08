@@ -1,0 +1,134 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt; 
+	color: #FFC526;
+	background-color: #000000;
+	margin: 2% 0 3% 0;
+	line-height: 1.4;
+}
+
+h1.title { 
+	margin: 0;
+	background: url(images/GuildReportLogo-Final.png);
+	width: 379px;
+	height: 150px;
+	font-size: 0;
+	text-indent: -9999px;
+	margin: 0 auto;
+}
+
+a {
+	color: #FFBB0F;
+	text-decoration: none;
+	font-style: italic;
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+
+div#mainPage {
+	background-color: #212121;
+	/*text-align: center;*/
+	width: 792px;
+	padding: 0 10px;
+	margin: 0 auto;
+}
+
+/* Header */
+ul#menu { 
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	height: 2em;
+}
+	ul#menu li { 
+		display: inline;
+		border-right: 1px solid #FFBB0F;
+	}
+	ul#menu li a { 
+		padding: 0 10px 0 5px;
+	}
+	ul#menu li.lastButton { 
+		border-right: none;
+	}
+
+form#searchRealm { 
+	text-align: center;
+	margin-bottom: 3em;
+}
+div#allRealms {
+	text-align: center;
+}
+div#realmsList { 
+	height: 10em;
+}
+div#usRealms { 
+	width: 375px;
+	float: left;
+}
+div#euRealms { 
+	width: 375px;
+	float: right;
+}
+.button { 
+	margin: 1em 0;
+}
+
+
+/* Content */
+
+#content {
+	padding-top: 10px;
+}
+
+
+/* Footer */
+
+#footer {
+	margin-top: 20%;
+	padding-bottom: 10px;
+}
+
+#footer p {
+	margin: 0;
+	text-align: center;
+}
+
+/* DOJO */
+.tundra .dijitTitlePaneTitle {
+	background: #212121;
+	border:1px solid #bfbfbf;
+	padding:4px 4px 2px 4px;
+	cursor: pointer;
+}
+
+.tundra .dijitTitlePaneTitle .dijitOpenCloseArrowOuter {
+	margin-right:5px;
+}
+
+.tundra .dijitOpen .dijitTitlePaneTitle .dijitOpenCloseArrowOuter {
+	position:relative;
+	top:2px;
+}
+
+.tundra .dijitTitlePaneContent {
+	background: #212121;
+	border:1px solid #bfbfbf;
+	border-top: 1px solid #cddde9;	/* w/out this, an <h1> on the top line causes a gap between the .content and .label */
+	padding:10px;
+}
+
+.tundra .dijitClickableRegion {
+	background-color : #ffc !important;
+}
+
+
+.tundra .dijitTextArea {
+	width:100%;
+	overflow:auto;
+	border:1px solid #7788a0;
+}

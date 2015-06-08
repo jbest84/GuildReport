@@ -1,0 +1,98 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt; 
+	color: #FFC526;
+	background-color: #000000;
+	margin: 2% 0 3% 0;
+	line-height: 1.4;
+}
+
+a {
+	color: #FFBB0F;
+	text-decoration: none;
+	font-style: italic;
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.mainTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* Header */
+
+#mainPage {
+	background-color: #212121;
+    height: 100%;
+    width: 792px;
+	padding-left: 10px;
+	padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+#header {
+	text-align: center;
+}
+
+
+/* Content */
+
+#content {
+	padding-top: 10px;
+}
+
+
+/* Footer */
+
+#footer {
+	margin-top: 20%;
+	padding-bottom: 10px;
+}
+
+#footer p {
+	margin: 0;
+	text-align: center;
+}
+
+/* DOJO */
+.tundra .dijitTitlePaneTitle {
+	background: #212121;
+	border:1px solid #bfbfbf;
+	padding:4px 4px 2px 4px;
+	cursor: pointer;
+}
+
+.tundra .dijitTitlePaneTitle .dijitOpenCloseArrowOuter {
+	margin-right:5px;
+}
+
+.tundra .dijitOpen .dijitTitlePaneTitle .dijitOpenCloseArrowOuter {
+	position:relative;
+	top:2px;
+}
+
+.tundra .dijitTitlePaneContent {
+	background: #212121;
+	border:1px solid #bfbfbf;
+	border-top: 1px solid #cddde9;	/* w/out this, an <h1> on the top line causes a gap between the .content and .label */
+	padding:10px;
+}
+
+.tundra .dijitClickableRegion {
+	background-color : #ffc !important;
+}
+
+
+.tundra .dijitTextArea {
+	width:100%;
+	overflow:auto;
+	border:1px solid #7788a0;
+}

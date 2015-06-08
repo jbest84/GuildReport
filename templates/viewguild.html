@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block title%}Guild View{%if guild%} - {{guild.name}}{%endif%}{%endblock%}
+{%block extra_head%}
+<script type="text/javascript" src="/media/jscripts/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+<script type="text/javascript">
+dojo.require("dojo.parser");
+dojo.require("dijit.TitlePane");
+        // dojo.require statements will go here when we figure out the widgets we need
+        // this is a pretty standard header for dojo-based pages
+</script>
+{%endblock%}
+{%block content%}
+<div id="colTwo">
+	{%if message%}
+	<h2>{{message}}</h2>
+	{%endif%}
+	{% if guild%}
+	<a href="/report/viewrealm/{{guild.realm.id}}/">Go back to realm view</a>
+	<h1>Guild: {{guild.name|escape}}</h1>
+	<h2>Faction: {{guild.faction}}</h2>
+	<h2>Realm: {{guild.realm.name}} ({{guild.realm.location}})</h2>
+	
+	{%if armory%}
+	<h3>Guild Leader: {{armory.guildLeader.name}} ({{armory.guildLeader.race}}, {{armory.guildLeader.playerClass}})</h3>
+	<h3>Members: {{armory.memberCount}}</h3>
+	<h3>Level 70 Members: {{armory.numSeventies}}</h3>
+	{%endif%}
+	
+	<br />
+	<h2>Reports - <a href="/report/reportguild/{{guild.id}}/">File a report on this guild</a></h2>
+	<p>Click the report header to expand/collapse it.</p>
+	{%if reports%}
+		{%for r in reports%}
+			<div class="tundra" open="true" dojoType="dijit.TitlePane"  title="Rating: %{{r.rating}},  Reported {{r.reported_on|timesince}} ago">
+			<ul>
+				<li>How does this guild treat its own members? {{r.member_rating}}</li>
+				<li>How does this guild treat other non-guild members in groups? {{r.group_rating}}</li>
+				<li>How is this guild's loot system? {{r.loot_rating}}</li>
+				<li>Overall guild rating? {{r.overall_rating}}</li><br />
+				Reason: {%if r.reason%} {{r.reason}}{%else%} None given.{%endif%}<br />
+				<br />
+				<div class="tundra" open="false" dojoType="dijit.TitlePane" title="Karma (click)">
+				{%if not gave_opinion%}
+				{%ifnotequal r.ip user_ip%}
+				<table>
+					<tr>
+						<td>Was this report helpful?</td>
+						<td>
+							<form action="/report/viewguild/{{guild.id}}/" method="post">
+								<input type="hidden" name="report_id" value="{{r.id}}"/>
+								<input class="formField" type="radio" name="report_rating" value="1">Insightful</input>
+								<input type="radio" name="report_rating" value="2">Average</input>
+								<input type="radio" name="report_rating" value="3">Uninformative</input>
+								<input class="formField" type="submit" value="Submit" />
+							</form>
+						</td>
+					</tr>
+				</table>
+				{%endifnotequal%}
+				{%endif%}
+				People that found it insightful: {{r.insightful_count}}<br />
+				People that found this report was average: {{r.funny_count}}<br />
+				People that thought this report was uninformative: {{r.troll_count}}<br />
+				</div>
+			</ul>
+			</div>
+			<br /><br />
+			
+		{%endfor%}
+	{%else%}
+		No reports have been filed for this guild! <a href="/report/">Home</a>
+	{%endif%}
+{%endif%}
+</div>
+{%endblock%}

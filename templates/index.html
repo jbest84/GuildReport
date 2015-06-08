@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title%}guildreport.com {%endblock%}
+
+{%block content%}
+{%if us_realms%}
+<div id="allRealms">
+<script type="text/javascript">
+				function navTo(realm_id) {
+					if(realm_id) {
+						window.location = "/report/viewrealm/" + realm_id;
+					}
+				}
+			</script>
+			<form action="/report/search/" method="post">
+				<input type="text" maxlength="100" name="search_text" style="width: 250px"/>
+				<input type="submit" value="Search"/>
+			</form>
+
+			<h3>Browse Realms</h3>
+
+
+			<div id="realmsList">
+				<div id="usRealms">
+					<h3>US Realms</h3>
+	
+					<form class="form" name="form1">
+						<select name="select_us_realm" >
+						<!--option value="">--Select a realm--</option-->
+						{% for r in us_realms%}
+						<option value="{{r.id}}">{{r.name}}</option>
+						{%endfor%}
+						</select>
+					</form>
+					<button class="button" onclick="javascript:navTo(document.form1.select_us_realm.value);">GO</button>
+				</div>
+
+				<div id="euRealms">
+					<h3>EU Realms</h3>
+					<form name="form2" clas="form">
+						<select name="select_eu_realm">
+						<!--<option value="">--Select a realm--</option>-->
+						{% for r in eu_realms%}
+						<option value="{{r.id}}">{{r.name}}</option>
+						{%endfor%}
+						</select>
+					</form>
+					<button class="button" onclick="javascript:navTo(document.form2.select_eu_realm.value);">GO</button>
+	
+				</div>
+			</div>
+		<p>Press CTRL-D to bookmark us!</p>
+</div>
+	{%endif%}
+{%endblock%}

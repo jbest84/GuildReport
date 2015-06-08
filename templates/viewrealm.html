@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title%}Realm View{%if realm%} - {{realm.name}}{%endif%}{%endblock%}
+
+{%block content%}
+<div>
+	{%if realm%}
+<h1>Now browsing all guilds for {{ realm.name }}</h1>
+
+<h2>Alliance</h2>
+<ul>
+{% for g in alliance%}
+	<li><a href="/report/viewguild/{{g.id}}/">{{g.name|escape}}</a></li>
+{%endfor%}
+</ul>
+
+<hr>
+
+<h2>Horde</h2>
+<ul>
+{% for g in horde%}
+	<li><a href="/report/viewguild/{{g.id}}/">{{g.name|escape}}</a></li>
+{%endfor%}
+</ul>
+
+{%else%}
+
+<h1>No guilds returned for this realm</h1>
+
+{%endif%}
+</div>
+{%endblock%}

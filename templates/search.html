@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title%}Search{%endblock%}
+{%block content%}
+{%if us_realms%}
+<script type="text/javascript">
+				function navTo(realm_id) {
+					if(realm_id) {
+						window.location = "/report/viewrealm/" + realm_id;
+					}
+				}
+			</script>
+		<h1>Search Results</h1>
+		<hr>
+		{%if results%}
+			{% for g in results%}
+				Guild: {{g.name|escape}}<br />
+				Realm: {{g.realm.name}}<br />
+				Faction: {{g.faction}}<br />
+				<a href="/report/viewguild/{{g.id}}/">View More Info..</a>
+				<hr>
+			{%endfor%}
+		{%else%}
+			No guilds found!
+		{%endif%}
+	{%endif%}
+{%endblock%}

@@ -1,0 +1,50 @@
+{%extends 'layout.html' %}
+{% block title%}GuildReport.com New Report{%endblock%}
+{%block extra_head%}
+<script language="javascript" type="text/javascript" src="/media/jscripts/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript">
+tinyMCE.init({
+	mode : "textareas"
+});
+</script>
+{%endblock%}
+{% block content%}
+{%if guild%}
+	<h4>All fields are required</h4>
+	 <form class="form" name="form1" action="/report/reportguild_submit/{{guild.id}}/" method="post">
+	 	<h2>Guild: {{guild.name|escape}}</h2>
+	 	<br />
+		<h4>How does this guild treat its own members?</h4>
+		<input type="radio" name="member_rating" value="1">Poor +1</input>
+		<input type="radio" name="member_rating" value="2">Below Average +2</input>
+		<input type="radio" name="member_rating" value="3">Average +3</input>
+		<input type="radio" name="member_rating" value="4">Above Average +4</input>
+		<input type="radio" name="member_rating" value="5">Excellent +5</input>
+		<br /><br />
+		<h4>How does this guild treat other non-guild members in groups?</h4>
+		<input type="radio" name="group_rating" value="1">Poor +1</input>
+		<input type="radio" name="group_rating" value="2">Below Average +2</input>
+		<input type="radio" name="group_rating" value="3">Average +3</input>
+		<input type="radio" name="group_rating" value="4">Above Average +4</input>
+		<input type="radio" name="group_rating" value="5">Excellent +5</input>
+		<br /><br />
+		<h4>How is this guild's loot system?</h4>
+		<input type="radio" name="loot_rating" value="1">Poor +1</input>
+		<input type="radio" name="loot_rating" value="2">Below Average +2</input>
+		<input type="radio" name="loot_rating" value="3">Average +3</input>
+		<input type="radio" name="loot_rating" value="4">Above Average +4</input>
+		<input type="radio" name="loot_rating" value="5">Excellent +5</input>
+		<br /><br />
+		<h4>Overall guild rating?</h4>
+		<input type="radio" name="overall_rating" value="1">Poor +1</input>
+		<input type="radio" name="overall_rating" value="2">Below Average +2</input>
+		<input type="radio" name="overall_rating" value="3">Average +3</input>
+		<input type="radio" name="overall_rating" value="4">Above Average +4</input>
+		<input type="radio" name="overall_rating" value="5">Excellent +5</input>
+		<br /><br />
+	 	<h4>Reason for reporting this guild:</h4><textarea name="reason" cols="100" rows="10"></textarea>
+		<br /><br />
+		<input type="submit" value="Submit"/>
+	 </form><br />
+{%endif%}
+{%endblock%}
